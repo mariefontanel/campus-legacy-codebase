@@ -127,6 +127,18 @@ public class GildedRoseTest {
     }
 
     @Test
+    void conjuredThingsQualityDecreaseTwiceAsFastAsDefault() {
+        Item item = new Item("Conjured things", 10, 30);
+        Item item2 = new Item("Conjured Cake", 0, 30);
+        Item item3 = new Item("Conjured a Cake", 1, 30);
+        GildedRose gildedRose = new GildedRose( new Item[]{item, item2, item3} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(28);
+        assertThat(item2.quality).isEqualTo(26);
+        assertThat(item3.quality).isEqualTo(28);
+    }
+
+    @Test
     void agingRedWineQualityShouldBeStable() {
         Item item = new Item("Aging Red Wine", 10, 30);
         Item item2 = new Item("Aging Red Wine", 1, 30);

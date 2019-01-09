@@ -28,7 +28,12 @@ public class GildedRose {
         }
         item.sellIn--;
 
-        switch (item.name){
+        String name = item.name;
+        if (item.name.startsWith("Conjured")) {
+            name = CONJURED;
+        }
+
+        switch (name){
             case AGED_BRIE:
                 item.agedBrieMethod();
                 break;
