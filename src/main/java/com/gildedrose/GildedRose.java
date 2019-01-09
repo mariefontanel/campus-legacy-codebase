@@ -16,7 +16,7 @@ public class GildedRose {
      * foreach item will check if is legendary, cheesy, a pass or conjured
      * for item.category : update'Category'
      */
-    void updateQuality() {
+    public void updateQuality() {
         for (Item item : items) {
             logger.info("ITEM :: " + item.toString());
             chooseWhatToDo(item);
