@@ -2,9 +2,9 @@ package com.gildedrose;
 
 public class Item {
 
-    String name;
-    int sellIn;
-    int quality;
+    public String name;
+    public int sellIn;
+    public int quality;
 
     /**
      * constructor
