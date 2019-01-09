@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public class GildedRose {
     Item[] items;
-    private static final Logger logger = LoggerFactory.getLogger(GildedRose.class);
+    static final Logger logger = LoggerFactory.getLogger(GildedRose.class);
 
     GildedRose(Item[] items) {
         this.items = items;
