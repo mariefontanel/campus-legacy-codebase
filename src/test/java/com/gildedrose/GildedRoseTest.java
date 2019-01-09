@@ -15,10 +15,15 @@ class GildedRoseTest {
             new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
             new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
             new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-            // this conjured item does not work properly yet
             new Item("Conjured Mana Cake", 3, 6),
             new Item("Conjured Mana Cake", 3, 3),
-            new Item("Conjured Mana Cake", 20, 10)};
+            new Item("Conjured Mana Cake", 20, 10),
+            // new items for new specification :
+            new Item("Aging Red Wine", 5, 35),
+            new Item("Aging Red Wine", 0, 20),
+            new Item("Aging Red Wine", -102, 35),
+            new Item("Aging Red Wine", -10, 30),
+    };
 
     @Test
     void checkName() {
@@ -33,6 +38,9 @@ class GildedRoseTest {
         assertThat(app.items[6].name).isEqualTo("Backstage passes to a TAFKAL80ETC concert");
         assertThat(app.items[7].name).isEqualTo("Backstage passes to a TAFKAL80ETC concert");
         assertThat(app.items[8].name).isEqualTo("Backstage passes to a TAFKAL80ETC concert");
+        assertThat(app.items[12].name).isEqualTo("Aging Red Wine");
+        assertThat(app.items[13].name).isEqualTo("Aging Red Wine");
+        assertThat(app.items[14].name).isEqualTo("Aging Red Wine");
     }
 
     @Test
@@ -42,10 +50,14 @@ class GildedRoseTest {
         assertThat(app.items[0].sellIn).isEqualTo(9);
         assertThat(app.items[1].sellIn).isEqualTo(1);
         assertThat(app.items[2].sellIn).isEqualTo(-1);
+        assertThat(app.items[12].quality).isEqualTo(35);
+        assertThat(app.items[13].quality).isEqualTo(20);
+        assertThat(app.items[14].quality).isEqualTo(34);
         for (int i = 0; i < 10; i++) {
             app.updateQuality();
         }
         assertThat(app.items[8].quality).isEqualTo(0);
+        assertThat(app.items[15].quality).isEqualTo(41);
     }
 
     @Test

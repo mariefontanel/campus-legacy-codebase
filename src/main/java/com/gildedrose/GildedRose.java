@@ -33,6 +33,7 @@ public class GildedRose {
         else if (item.isAPass()) updatePass(item);
         else if (item.isConjured()) updateConjured(item);
         else if (item.isLegendary()) updateLegendary(item);
+        else if (item.isAgingRedWine()) updateAgingRedWine(item);
         else updateOther(item);
     }
 
@@ -91,6 +92,18 @@ public class GildedRose {
     }
 
     /**
+     * aging red wine
+     * if sellin < 0 increment quality once
+     * if sellin < -100 decrement quality once
+     *
+     * @param item
+     */
+    private void updateAgingRedWine(Item item) {
+        if (item.sellIn < 0 && item.sellIn >= - 100) increaseQuality(item);
+        if (item.sellIn < -100) decreaseQuality(item);
+    }
+
+    /**
      * decrement quality of normal item
      *
      * @param item
@@ -116,7 +129,7 @@ public class GildedRose {
      * item.quality increment
      * <p>
      * if quality less or equal from 0, item is reset to 0 (just in case)
-     * then icrement the quality
+     * then increment the quality
      * then check if quality is not more than 50 (max from the spec)
      *
      * @param item
