@@ -7,7 +7,7 @@ public class GildedRose {
     Item[] items;
     static final Logger logger = LoggerFactory.getLogger(GildedRose.class);
 
-    GildedRose(Item[] items) {
+    public GildedRose(Item[] items) {
         this.items = items;
     }
 
