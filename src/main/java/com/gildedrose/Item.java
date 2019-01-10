@@ -19,19 +19,21 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    public void decreaseQuality() {
-        if  (this.quality > 0) {
-            this.quality--;
+    public void decreaseQuality(int number) {
+        this.quality -= number;
+        if  (this.quality < 0) {
+            this.quality = 0;
         }
     }
 
-    public void increaseQuality() {
-        if (this.quality < 50) {
-            this.quality++;
+    public void increaseQuality(int number) {
+        this.quality += number;
+        if (this.quality > 50) {
+            this.quality = 50;
         }
     }
 
-    public void defaultMethod() {
+   /* public void defaultMethod() {
         this.decreaseQuality();
         if (this.sellIn < 0) {
             this.decreaseQuality();
@@ -71,5 +73,5 @@ public class Item {
         if (this.sellIn < -100) {
             this.decreaseQuality();
         }
-    }
+    }*/
 }
